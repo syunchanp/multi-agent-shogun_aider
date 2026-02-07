@@ -509,7 +509,7 @@ if [ "$SETUP_ONLY" = false ]; then
 
     # 将軍
     #tmux send-keys -t shogun:main "MAX_THINKING_TOKENS=0 claude --model opus --dangerously-skip-permissions"
-    tmux send-keys -t shogun:main "MAX_THINKING_TOKENS=0 OLLAMA_BASE_URL=http://192.168.20.132:11434 aider --model ollama/gpt-oss:20b --no-stream"
+    tmux send-keys -t shogun:main "MAX_THINKING_TOKENS=0 ANTHROPIC_BASE_URL=http://192.168.20.132:11434 ANTHROPIC_AUTH_TOKEN=ollama claude --model gpt-oss:20b"
     tmux send-keys -t shogun:main Enter
     log_info "  └─ 将軍、召喚完了"
 
@@ -519,7 +519,7 @@ if [ "$SETUP_ONLY" = false ]; then
     # 家老（pane 0）: Opus Thinking
     p=$((PANE_BASE + 0))
     #   tmux send-keys -t "multiagent:agents.${p}" "claude --model opus --dangerously-skip-permissions"
-    tmux send-keys -t "multiagent:agents.${p}" "OLLAMA_BASE_URL=http://192.168.20.132:11434 aider --model ollama/gpt-oss:20b --no-stream"
+    tmux send-keys -t "multiagent:agents.${p}" " ANTHROPIC_BASE_URL=http://192.168.20.132:11434 ANTHROPIC_AUTH_TOKEN=ollama claude --model gpt-oss:20b"
     tmux send-keys -t "multiagent:agents.${p}" Enter
     log_info "  └─ 家老（Opus Thinking）、召喚完了"
 
@@ -528,7 +528,7 @@ if [ "$SETUP_ONLY" = false ]; then
         for i in {1..8}; do
             p=$((PANE_BASE + i))
             #   tmux send-keys -t "multiagent:agents.${p}" "claude --model opus --dangerously-skip-permissions"
-            tmux send-keys -t "multiagent:agents.${p}" "OLLAMA_BASE_URL=http://192.168.20.132:11434 aider --model ollama/gpt-oss:20b --no-stream"
+            tmux send-keys -t "multiagent:agents.${p}" " ANTHROPIC_BASE_URL=http://192.168.20.132:11434 ANTHROPIC_AUTH_TOKEN=ollama claude --model gpt-oss:20b"
             tmux send-keys -t "multiagent:agents.${p}" Enter
         end
         log_info "  └─ 足軽1-8（Opus Thinking）、決戦の陣で召唤完了"
@@ -537,7 +537,7 @@ if [ "$SETUP_ONLY" = false ]; then
         for i in {1..4}; do
             p=$((PANE_BASE + i))
             #   tmux send-keys -t "multiagent:agents.${p}" "claude --model sonnet --dangerously-skip-permissions"
-            tmux send-keys -t "multiagent:agents.${p}" "OLLAMA_BASE_URL=http://192.168.20.132:11434 aider --model ollama/gpt-oss:20b --no-stream"
+            tmux send-keys -t "multiagent:agents.${p}" " ANTHROPIC_BASE_URL=http://192.168.20.132:11434 ANTHROPIC_AUTH_TOKEN=ollama claude --model gpt-oss:20b"
             tmux send-keys -t "multiagent:agents.${p}" Enter
         done
         log_info "  └─ 足軽1-4（Sonnet Thinking）、召唤完了"
@@ -545,7 +545,7 @@ if [ "$SETUP_ONLY" = false ]; then
         for i in {5..8}; do
             p=$((PANE_BASE + i))
             #   tmux send-keys -t "multiagent:agents.${p}" "claude --model opus --dangerously-skip-permissions"
-            tmux send-keys -t "multiagent:agents.${p}" "OLLAMA_BASE_URL=http://192.168.20.132:11434 aider --model ollama/gpt-oss:20b --no-stream"
+            tmux send-keys -t "multiagent:agents.${p}" " ANTHROPIC_BASE_URL=http://192.168.20.132:11434 ANTHROPIC_AUTH_TOKEN=ollama claude --model gpt-oss:20b"
             tmux send-keys -t "multiagent:agents.${p}" Enter
         done
         log_info "  └─ 足軽5-8（Opus Thinking）、召唤完了"
