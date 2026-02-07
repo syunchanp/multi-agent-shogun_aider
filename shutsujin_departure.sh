@@ -513,7 +513,8 @@ if [ "$SETUP_ONLY" = false ]; then
     log_war "👑 全軍に Claude Code を召喚中..."
 
     # 将軍
-    tmux send-keys -t shogun:main "MAX_THINKING_TOKENS=0 claude --model opus --dangerously-skip-permissions"
+    #tmux send-keys -t shogun:main "MAX_THINKING_TOKENS=0 claude --model opus --dangerously-skip-permissions"
+    tmux send-keys -t shogun:main "MAX_THINKING_TOKENS=0 aider --model gpt-oss:20b --no-stream"
     tmux send-keys -t shogun:main Enter
     log_info "  └─ 将軍、召喚完了"
 
@@ -522,7 +523,8 @@ if [ "$SETUP_ONLY" = false ]; then
 
     # 家老（pane 0）: Opus Thinking
     p=$((PANE_BASE + 0))
-    tmux send-keys -t "multiagent:agents.${p}" "claude --model opus --dangerously-skip-permissions"
+ #   tmux send-keys -t "multiagent:agents.${p}" "claude --model opus --dangerously-skip-permissions"
+    tmux send-keys -t "multiagent:agents.${p}" "aider --model gpt-oss:20b --no-stream"
     tmux send-keys -t "multiagent:agents.${p}" Enter
     log_info "  └─ 家老（Opus Thinking）、召喚完了"
 
@@ -530,7 +532,8 @@ if [ "$SETUP_ONLY" = false ]; then
         # 決戦の陣: 全足軽 Opus Thinking
         for i in {1..8}; do
             p=$((PANE_BASE + i))
-            tmux send-keys -t "multiagent:agents.${p}" "claude --model opus --dangerously-skip-permissions"
+            #tmux send-keys -t "multiagent:agents.${p}" "claude --model opus --dangerously-skip-permissions"
+            tmux send-keys -t "multiagent:agents.${p}" "aider --model gpt-oss:20b --no-stream"
             tmux send-keys -t "multiagent:agents.${p}" Enter
         done
         log_info "  └─ 足軽1-8（Opus Thinking）、決戦の陣で召喚完了"
@@ -538,15 +541,17 @@ if [ "$SETUP_ONLY" = false ]; then
         # 平時の陣: 足軽1-4=Sonnet, 足軽5-8=Opus
         for i in {1..4}; do
             p=$((PANE_BASE + i))
-            tmux send-keys -t "multiagent:agents.${p}" "claude --model sonnet --dangerously-skip-permissions"
+            #tmux send-keys -t "multiagent:agents.${p}" "claude --model sonnet --dangerously-skip-permissions"
+            tmux send-keys -t "multiagent:agents.${p}" "aider --model gpt-oss:20b --no-stream"
             tmux send-keys -t "multiagent:agents.${p}" Enter
         done
         log_info "  └─ 足軽1-4（Sonnet Thinking）、召喚完了"
 
         for i in {5..8}; do
             p=$((PANE_BASE + i))
-            tmux send-keys -t "multiagent:agents.${p}" "claude --model opus --dangerously-skip-permissions"
-            tmux send-keys -t "multiagent:agents.${p}" Enter
+            #tmux send-keys -t "multiagent:agents.${p}" "claude --model opus --dangerously-skip-permissions"
+            tmux send-keys -t "multiagent:agents.${p}" "aider --model gpt-oss:20b --no-stream"
+            mux send-keys -t "multiagent:agents.${p}" Enter
         done
         log_info "  └─ 足軽5-8（Opus Thinking）、召喚完了"
     fi

@@ -334,6 +334,7 @@ if [ "$NEED_CLAUDE_INSTALL" = true ]; then
         echo '' >> "$HOME/.bashrc"
         echo '# Claude Code CLI PATH (added by first_setup.sh)' >> "$HOME/.bashrc"
         echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+        echo 'export OLLAMA_API_BASE="http://192.168.20.132:11434"' >> "$HOME/.bashrc"
         log_info "~/.local/bin を ~/.bashrc の PATH に追加しました"
     fi
 

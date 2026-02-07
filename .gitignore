@@ -44,3 +44,4 @@ projects/
 # Internal docs (operation logs, test plans, article drafts)
 docs/
 archive/
+.aider*
